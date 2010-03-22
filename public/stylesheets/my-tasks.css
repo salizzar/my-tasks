@@ -1,0 +1,131 @@
+BODY
+{
+            font-family: helvetica, sans-serif;
+              font-size: 10pt;
+             background: #d0d0d0;
+}
+
+TABLE { font-size: 10pt; }
+
+A
+{
+  text-decoration: underline;
+            color: #333;
+}
+
+A:HOVER
+{
+  text-decoration: none;
+            color: #666;
+}
+
+H1 { font-size: 16pt; }
+H2 { font-size: 14pt; }
+H3 { font-size: 12pt; }
+
+.container
+{
+                  width: 780px;
+                 margin: 0 auto;
+}
+
+.container h1#title
+{
+  text-align: center;
+   font-size: 30pt;
+}
+
+.border
+{
+     -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+          border-radius: 20px;
+
+       background-color: #fff;
+                padding: 10px;
+}
+
+.menu
+{
+      -moz-border-radius-topleft: 10px;
+     -moz-border-radius-topright: 10px;
+
+   -webkit-border-radius-topleft: 10px;
+  -webkit-border-radius-topright: 10px;
+
+          border-top-left-radius: 10px;
+         border-top-right-radius: 10px;
+
+                   margin-bottom: 10px;
+                      background: #A0B000;
+                         padding: 10px;
+}
+
+.menu a
+{
+  font-weight: bolder;
+        color: white;
+}
+
+.menu a:hover
+{
+  text-decoration: none;
+  color: red;
+}
+
+.content { background-color: #fff; }
+
+.content table
+{
+  border-collapse: collapse;
+          padding: 4px;
+            width: 100%;
+}
+
+.content table th
+{
+  background: #A7C900;
+   font-size: 12pt;
+  text-align: left;
+       color: white;
+}
+
+.content table,
+.content th,
+.content td
+{
+  padding: 4px;
+  border: 1px solid white;
+}
+  
+.content td { background-color: #f0f0f0; }
+
+.footer
+{
+      -moz-border-radius-bottomleft: 10px;
+     -moz-border-radius-bottomright: 10px;
+
+   -webkit-border-radius-bottomleft: 10px;
+  -webkit-border-radius-bottomright: 10px;
+
+          border-bottom-left-radius: 10px;
+         border-bottom-right-radius: 10px;
+
+                         background: #A0B000;
+                         margin-top: 10px;
+                         text-align: right;
+                            padding: 10px;
+}
+
+.flash
+{
+  text-align: center;
+       color: green;
+}
+
+.tasks
+{
+  background-color: #FFFFCC;
+           padding: 4px;
+            border: 1px solid #FFF000;
+}

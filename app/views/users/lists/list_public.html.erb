@@ -1,0 +1,16 @@
+<h1>Listing public lists</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+
+<% @lists.each do |list| %>
+  <tr>
+    <td><%=h list.name %></td>
+    <td><%=h list.description %></td>
+  </tr>
+<% end %>
+</table>
+

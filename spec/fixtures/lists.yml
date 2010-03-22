@@ -1,0 +1,11 @@
+tests:
+  name: Write tests 
+  description: Write tests for helpers and models
+  public: false
+  user: marcelo 
+
+stories:
+  name: Write stories
+  description: Write stories for integration tests 
+  public: false
+  user: marcelo 

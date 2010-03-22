@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>My Tasks</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+</head>
+<body>
+
+<div class="container">
+  <h1 id="title">My Tasks</h1>
+
+  <div class="border">
+    <div class="menu">
+      <%= link_to 'My Tasks Lists', lists_path %>
+      <%= link_to 'View Public Lists', :controller => 'users/lists', :action => 'list_public' %>
+      <%= link_to 'Logout', destroy_user_session_path %>
+    </div>
+
+    <p style="color: green"><%= flash[:notice] %></p>
+
+    <div class="content">
+      <%= yield %>
+    </div>
+
+    <div class="footer">
+      :) 
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<% form_for(@list) do |f| %>
+  <div id="tasks">
+    <%= f.error_messages %>
+
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :description %><br />
+      <%= f.text_area :description, :rows => 4 %>
+    </p>
+    <p>
+      <%= f.label :public %><br />
+      <%= f.check_box :public %>
+    </p>
+
+    <% f.fields_for :tasks do |task_f| %>
+      <%= render 'task', { :f => task_f } %>
+    <% end %>
+  </div>
+
+  <p>
+    <%= insert_task_link 'Add a task', f %>
+  </p>
+
+  <p>
+    <%= f.submit button %>
+  </p>
+<% end %>
+

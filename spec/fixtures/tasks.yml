@@ -1,0 +1,9 @@
+models:
+  name: Tests for models
+  completed: false
+  list: tests 
+
+login:
+  name: Story for login
+  completed: false
+  list: stories
