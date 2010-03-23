@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :photo
 
-  has_many                :lists
-  has_and_belongs_to_many :watches
+  has_many :watches
+  has_many :lists, :through => :watches
 
   mount_uploader :photo, PhotoUploader
 end

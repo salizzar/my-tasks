@@ -1,8 +1,8 @@
 class Users::ListsController < InheritedResources::Base
   acts_as_user
 
-  def list_public
-    @lists = List.list_public
+  def public_lists
+    @lists = List.public_lists
   end
 
   def watched_lists

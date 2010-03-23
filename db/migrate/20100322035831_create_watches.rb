@@ -1,10 +1,8 @@
 class CreateWatches < ActiveRecord::Migration
   def self.up
-    create_table :watches do |t|
+    create_table :watches, :id => false do |t|
       t.references :user
       t.references :list
-
-      t.timestamps
     end
   end
 
