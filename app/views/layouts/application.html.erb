@@ -15,9 +15,11 @@
 
   <div class="border">
     <div class="menu">
-      <%= link_to 'My Tasks Lists', lists_path %>
-      <%= link_to 'View Public Lists', :controller => 'users/lists', :action => 'public_lists' %>
-      <%= link_to 'Logout', destroy_user_session_path %>
+      <% if user_signed_in? %>
+        <%= link_to 'My Tasks Lists', lists_path %>
+        <%= link_to 'View Public Lists', :controller => 'users/lists', :action => 'public_lists' %>
+        <%= link_to 'Logout', destroy_user_session_path %>
+      <% end %>
     </div>
 
     <p style="color: green"><%= flash[:notice] %></p>

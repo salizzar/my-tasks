@@ -1,15 +1,15 @@
 require 'spec_helper'
 
 describe List do
-  fixtures :users, :lists
-
   before(:each) do
+    @task = Task.new :name => 'a test'
+
     @valid_attributes = {
       :name         => 'value for name',
       :description  => 'value for description',
       :public       => false,
-      :user         => users(:marcelo),
-      :tasks        => lists(:tests).tasks
+      :user_id      => 1,
+      :tasks        => [ @task ]
     }
   end
 
@@ -28,12 +28,22 @@ describe List do
   end
 
   it 'should belong to a user' do
-    list = List.new @valid_attributes.except(:user)
-    invalid_model_attribute(list, :user).should be_true
+    list = List.new @valid_attributes.except(:user_id)
+    invalid_model_attribute(list, :user_id).should be_true
   end
 
-  it 'should have a task' do
+  it 'should have at least one task' do
     list = List.new @valid_attributes.except(:tasks)
     invalid_model_attribute(list, :tasks).should be_true
+  end
+
+  it 'should associate tasks to it' do
+    list = List.new @valid_attributes.except(:tasks)
+    task = @task
+
+    list.tasks << task
+
+    list.save
+    task.should_not be_new_record
   end
 end

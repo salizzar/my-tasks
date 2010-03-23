@@ -1,13 +1,10 @@
 require 'spec_helper'
 
 describe Task do
-  fixtures :lists
-
   before(:each) do
     @valid_attributes = {
       :name       => 'value for name',
-      :completed  => false,
-      :list       => lists(:tests)
+      :completed  => false
     }
   end
 
