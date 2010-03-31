@@ -1,11 +1,17 @@
 class Users::ListsController < InheritedResources::Base
   acts_as_user
 
-  def public_lists
-    @lists = List.public_lists
+  def show_public
+    @lists = List.find_public_from_others @current_user.id
   end
 
-  def watched_lists
-    @lists = List.watched_lists
+  def show_watched
+    @lists = List.find_watched_by_user @current_user.watches
+  end
+
+  def toggle_watch
+    watch = Watch.toggle(@current_user.id, params[:id])
+    flash[:notice] = "List was successfully #{ watch ? 'watched' : 'unwatched' }."
+    redirect_to :action => 'show_public'
   end
 end

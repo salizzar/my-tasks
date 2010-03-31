@@ -17,7 +17,8 @@
     <div class="menu">
       <% if user_signed_in? %>
         <%= link_to 'My Tasks Lists', lists_path %>
-        <%= link_to 'View Public Lists', :controller => 'users/lists', :action => 'public_lists' %>
+        <%= link_to 'View Public Lists', :controller => 'users/lists', :action => 'show_public' %>
+        <%= link_to 'My Watched Lists',  :controller => 'users/lists', :action => 'show_watched' %> 
         <%= link_to 'Logout', destroy_user_session_path %>
       <% end %>
     </div>

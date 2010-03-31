@@ -1,0 +1,17 @@
+<h1>Public lists</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+
+<% @lists.each do |list| %>
+  <tr>
+    <td><%=h list.name %></td>
+    <td><%=h list.description %></td>
+    <td><%= watch_link(list) %></td>
+  </tr>
+<% end %>
+</table>
+

@@ -21,4 +21,17 @@ describe Watch do
     watch = Watch.new @valid_attributes.except(:list_id)
     invalid_model_attribute(watch, :list_id).should be_true
   end
+
+  describe 'when toggle' do
+    it 'should create if not exists' do
+      watch = Watch.toggle(@valid_attributes[:user_id], @valid_attributes[:list_id])
+      watch.should_not be_nil
+    end
+
+    it 'should destroy if already exists' do
+      Watch.create :user_id => @valid_attributes[:user_id], :list_id => @valid_attributes[:list_id]
+      watch = Watch.toggle(@valid_attributes[:user_id], @valid_attributes[:list_id])
+      watch.should be_nil
+    end
+  end
 end

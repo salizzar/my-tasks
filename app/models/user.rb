@@ -7,8 +7,14 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :photo
 
-# has_many :watches
-  has_many :lists#, :through => :watches
+  has_many :watches,  :dependent => :delete_all
+  has_many :lists,    :dependent => :delete_all
 
   mount_uploader :photo, PhotoUploader
+
+  def is_watching?(list)
+    @watches_ids ||= watches.collect(&:list_id)
+    @watches_ids.include?(list.id)
+  end
 end
+
