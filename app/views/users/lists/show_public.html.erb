@@ -10,7 +10,7 @@
   <tr>
     <td><%=h list.name %></td>
     <td><%=h list.description %></td>
-    <td><%= watch_link(list) %></td>
+    <td><%= watch_link(current_user, list) %></td>
   </tr>
 <% end %>
 </table>

@@ -8,8 +8,8 @@ module ListsHelper
     form_builder.hidden_field(:_destroy) + link_to_function(text, 'remove_task(this)')
   end
 
-  def watch_link(list)
-    text = current_user.is_watching?(list) ? 'Unwatch' : 'Watch'
+  def watch_link(user, list)
+    text = user.is_watching?(list) ? 'Unwatch' : 'Watch'
     link_to text, :controller => 'users/lists', :action => 'toggle_watch', :id => list
   end
 

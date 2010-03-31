@@ -12,6 +12,7 @@ Rails::Initializer.run do |config|
   config.gem 'rspec-rails',         :version => '1.3.2',  :lib => false
   config.gem 'rmagick',             :version => '2.12.2', :lib => 'RMagick2'
   config.gem 'warden',              :version => '0.9.6'
+  config.gem 'cucumber',            :version => '0.6.4'
 
   config.gem 'devise',              :version => '1.0.4'
   config.gem 'inherited_resources', :version => '1.0.4'

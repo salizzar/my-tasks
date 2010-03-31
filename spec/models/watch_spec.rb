@@ -2,9 +2,11 @@ require 'spec_helper'
 
 describe Watch do
   before(:each) do
+    list = create_list(true)
+
     @valid_attributes = {
       :user_id => 1,
-      :list_id => 1
+      :list_id => list.id
     }
   end
 
@@ -22,6 +24,13 @@ describe Watch do
     invalid_model_attribute(watch, :list_id).should be_true
   end
 
+  it 'should not accept a private list' do
+    list = create_list(false)
+
+    watch = Watch.new @valid_attributes.merge(:list_id => list.id)
+    invalid_model_attribute(watch, :list_id).should be_true
+  end
+
   describe 'when toggle' do
     it 'should create if not exists' do
       watch = Watch.toggle(@valid_attributes[:user_id], @valid_attributes[:list_id])
@@ -34,4 +43,15 @@ describe Watch do
       watch.should be_nil
     end
   end
+
+private
+
+  def create_list(is_public)
+	List.create :name         => 'A name',
+                :description  => 'A description',
+                :public       => is_public,
+                :user_id      => 1,
+                :tasks        => [ Task.create :name => 'A task' ] 
+  end
 end
+

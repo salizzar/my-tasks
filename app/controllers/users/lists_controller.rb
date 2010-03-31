@@ -6,7 +6,7 @@ class Users::ListsController < InheritedResources::Base
   end
 
   def show_watched
-    @lists = List.find_watched_by_user @current_user.watches
+    @lists = List.find_watched @current_user.watches
   end
 
   def toggle_watch
