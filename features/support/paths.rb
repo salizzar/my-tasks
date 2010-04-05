@@ -10,6 +10,12 @@ module NavigationHelpers
     
     when /the home\s?page/
       '/'
+    when /the new watch page/
+      new_watch_path
+
+    when /the new watch page/
+      new_watch_path
+
     
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
@@ -21,6 +27,15 @@ module NavigationHelpers
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"
     end
+  end
+
+  def do_login 
+    visit '/'
+
+    fill_in 'Email',    :with => 'salizzar@gmail.com'
+    fill_in 'Password', :with => 'plataforma'
+
+    click_button 'Sign in'
   end
 end
 
