@@ -1,22 +1,24 @@
-Given /^Im at 'My Public Lists'$/ do
-  do_login
-
+Given /^visit 'My Public Lists'$/ do
   click_link 'View Public Lists'
 end
 
 When /^I click on the link Watch$/ do
-  pending # express the regexp above with the code you wish you had
+  link = all("//table/tr/td/a[text()='Watch']").last[:href]
+
+  visit link
 end
 
 Then /^I should see 'List was successfully watched\.'$/ do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content 'List was successfully watched.'
 end
 
 When /^I click on the link Unwatch$/ do
-  pending # express the regexp above with the code you wish you had
+  link = all("//table/tr/td/a[text()='Unwatch']").last[:href]
+
+  visit link
 end
 
 Then /^I should see 'List was successfully unwatched\.'$/ do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content 'List was successfully unwatched.'
 end
 

@@ -28,15 +28,6 @@ module NavigationHelpers
         "Now, go and add a mapping in #{__FILE__}"
     end
   end
-
-  def do_login 
-    visit '/'
-
-    fill_in 'Email',    :with => 'salizzar@gmail.com'
-    fill_in 'Password', :with => 'plataforma'
-
-    click_button 'Sign in'
-  end
 end
 
 World(NavigationHelpers)
