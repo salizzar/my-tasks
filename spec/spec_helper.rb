@@ -7,6 +7,7 @@ require 'spec/rails'
 
 # custom methods
 require 'spec/custom_spec'
+require 'factory_girl'
 
 # Uncomment the next line to use webrat's matchers
 #require 'webrat/integrations/rspec-rails'

@@ -1,24 +1,18 @@
 require 'spec_helper'
+require 'factories/task'
 
 describe Task do
-  before(:each) do
-    @valid_attributes = {
-      :name       => 'value for name',
-      :completed  => false
-    }
-  end
-
   it 'should create a new instance given valid attributes' do
-    Task.create!(@valid_attributes)
+    Factory.create(:task).should be_true
   end
 
   it 'should have a name' do
-    task = Task.new @valid_attributes.except(:name)
+    task = Factory.build(:task, :name => nil)
     invalid_model_attribute(task, :name).should be_true
   end
 
   it 'should not accept a name with invalid characters' do
-    task = Task.new @valid_attributes.merge(:name => 'U)%#$#()][')
+    task = Factory.build(:task, :name => 'U)%#$#()][') 
     invalid_model_attribute(task, :name).should be_true
   end
 end

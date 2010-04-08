@@ -15,6 +15,7 @@ Rails::Initializer.run do |config|
   config.gem 'cucumber',            :version => '0.6.4'
   config.gem 'cucumber-rails',      :version => '0.3.0',  :lib => false
   config.gem 'database_cleaner',    :version => '0.5.0'
+  config.gem 'factory_girl',        :version => '1.2.4',  :lib => false
 
   config.gem 'devise',              :version => '1.0.4'
   config.gem 'inherited_resources', :version => '1.0.4'
