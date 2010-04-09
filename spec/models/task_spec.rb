@@ -3,7 +3,7 @@ require 'factories/task'
 
 describe Task do
   it 'should create a new instance given valid attributes' do
-    Factory.create(:task).should be_true
+    Factory(:task).should be_true
   end
 
   it 'should have a name' do

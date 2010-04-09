@@ -6,7 +6,7 @@ require 'factories/watch'
 
 describe List do
   it 'should create a new instance given valid attributes' do
-    Factory.create(:list).should be_true
+    Factory(:list).should be_true
   end
 
   it 'should have a name' do
@@ -83,10 +83,10 @@ private
 
   def create_public_lists(is_public)
     4.times do |i|
-      user = Factory.create(:user, :email => Factory.next(:email))
+      user = Factory(:user)
 
       2.times do |j|
-        Factory.create(:list, { :public => is_public, :user => user })
+        Factory(:list, { :public => is_public, :user => user })
       end
     end
   end
@@ -97,7 +97,7 @@ private
     user = User.first.id
 
     List.all(:conditions => { :public => true, :user_id => user.id }).each do |list|
-      watches << Factory.create(:watch, { :user => user, :list => list })
+      watches << Factory(:watch, { :user => user, :list => list })
     end
 
     watches
