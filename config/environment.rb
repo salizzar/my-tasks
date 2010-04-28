@@ -7,20 +7,13 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  config.gem 'sqlite3-ruby',        :version => '1.2.5',  :lib => 'sqlite3'
-  config.gem 'rspec',               :version => '1.3.0',  :lib => false
-  config.gem 'rspec-rails',         :version => '1.3.2',  :lib => false
-  config.gem 'rmagick',             :version => '2.12.2', :lib => 'RMagick2'
   config.gem 'warden',              :version => '0.9.6'
-  config.gem 'cucumber',            :version => '0.6.4'
-  config.gem 'cucumber-rails',      :version => '0.3.0',  :lib => false
-  config.gem 'database_cleaner',    :version => '0.5.0'
-  config.gem 'factory_girl',        :version => '1.2.4',  :lib => false
+  config.gem 'sqlite3-ruby',        :version => '1.2.5',  :lib => 'sqlite3'
+  config.gem 'rmagick',             :version => '2.12.2', :lib => 'RMagick2'
 
   config.gem 'devise',              :version => '1.0.4'
   config.gem 'inherited_resources', :version => '1.0.4'
   config.gem 'carrierwave',         :version => '0.4.5'
-  config.gem 'capybara',            :version => '0.3.5'
 
   config.time_zone = 'UTC'
 end

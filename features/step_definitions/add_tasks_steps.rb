@@ -1,6 +1,5 @@
 Given /^visit the link 'My Tasks Lists'$/ do
   click_link 'My Tasks Lists'
-# pending # express the regexp above with the code you wish you had
 end
 
 Given /^visit the link 'New list'$/ do

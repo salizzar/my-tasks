@@ -4,7 +4,7 @@ require 'spec/factories/list'
 require 'spec/factories/task'
 require 'spec/factories/watch'
 
-def create_user_and_your_lists
+def create_user_and_their_lists
   user = Factory(:user)
 
   # update devise fields
@@ -17,8 +17,8 @@ def create_user_and_your_lists
 end
 
 Given /^I do my login$/ do
-  my_user = create_user_and_your_lists
-  another_user = create_user_and_your_lists
+  my_user = create_user_and_their_lists
+  another_user = create_user_and_their_lists
 
   # create a watch
   Factory(:watch, { :user_id => my_user.id, :list_id => another_user.lists[0].id })

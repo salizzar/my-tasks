@@ -1,24 +1,16 @@
 require 'spec_helper'
+require 'factories/user'
+require 'factories/list'
+require 'factories/task'
 
 describe ListsHelper do
   before(:each) do
     @form_builder = ActionView::Helpers::FormBuilder.new(:tasks, Task.new, helper, {}, {})
   end
 
-  #Delete this example and add some real ones or delete this file
   it 'is included in the helper object' do
     included_modules = (class << helper; self; end).send :included_modules
     included_modules.should include(ListsHelper)
-  end
-
-  describe 'when create tasks links' do
-    it 'should build a link to insert a task' do
-      pending
-    end
-
-    it 'should build a link to remove a task' do
-      pending
-    end
   end
 
   describe 'when create a watch link' do
@@ -49,14 +41,10 @@ describe ListsHelper do
 private
 
   def create_list
-      List.create :name        => 'A name',
-                  :description => 'A description',
-                  :public      => true,
-                  :user_id     => 1,
-                  :tasks       => [ Task.new :name => 'A task' ]
+    Factory(:list)
   end
 
   def create_user
-    User.new :email => 'salizzar@gmail.com'
+    Factory(:user)
   end
 end

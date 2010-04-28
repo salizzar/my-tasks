@@ -43,7 +43,7 @@ describe List do
     it 'should exclude lists from a specific user' do
       create_public_lists(true)
 
-      user = User.first.id
+      user = User.first
 
       lists = List.find_public_from_others(user.id).select { |l| l.user_id == user.id }
       lists.size.should be_zero
@@ -52,7 +52,7 @@ describe List do
     it 'should have only public lists' do
       create_public_lists(false)
 
-      user = User.first.id
+      user = User.first
 
       lists = List.find_public_from_others(user.id).select { |l| l.public == false }
       lists.size.should be_zero
@@ -94,7 +94,7 @@ private
   def create_watches
     watches = []
 
-    user = User.first.id
+    user = User.first
 
     List.all(:conditions => { :public => true, :user_id => user.id }).each do |list|
       watches << Factory(:watch, { :user => user, :list => list })
